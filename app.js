@@ -21,7 +21,7 @@ $('#burger').onclick=()=>$('#menu').classList.toggle('open');
 $$('#menu a').forEach(a=>a.onclick=()=>$('#menu').classList.remove('open'));
 $('#yr').textContent=new Date().getFullYear();
 $('#phoneLink').textContent=cfg.CONTACT_PHONE_DISPLAY||'';$('#phoneLink').href='tel:'+(cfg.CONTACT_PHONE_DISPLAY||'');
-$('#waLink').href='https://wa.me/'+(cfg.WHATSAPP_NUMBER||'');
+$('#waLink').href='https://wa.me/'+(cfg.WHATSAPP_NUMBER||'');$('#faqWa').href='https://wa.me/'+(cfg.WHATSAPP_NUMBER||'');
 
 /* steps */
 let step=0;const panes=$$('.step-pane'),bars=$$('#progress div');

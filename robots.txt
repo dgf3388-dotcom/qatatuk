@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://dgf3388-dotcom.github.io/qatatuk/sitemap.xml
