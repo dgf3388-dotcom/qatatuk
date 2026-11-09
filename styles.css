@@ -97,3 +97,10 @@ footer .logo{color:#fff;justify-content:center;margin-bottom:6px}
 .part[aria-pressed=true]{border-color:var(--orange);background:#fff4e0;box-shadow:0 0 0 3px rgba(255,138,0,.15)}
 .cat-more{margin-top:12px;padding:8px 18px;font-size:.9rem}
 @media(max-width:640px){.cat-grid{grid-template-columns:repeat(3,1fr)}}
+
+/* hero photo */
+.hero .container{grid-template-columns:.85fr 1.15fr}
+.hero-art picture,.hero-art img{display:block;width:100%}
+.hero-art img{height:auto;border-radius:20px;box-shadow:0 24px 60px rgba(0,0,0,.35)}
+@media(max-width:860px){.hero{padding:36px 0 44px}.hero .container{grid-template-columns:1fr}.hero-art{max-width:680px;width:100%}}
+@media(max-width:600px){.hero-art img{aspect-ratio:4/5;object-fit:cover;object-position:50% 70%;border-radius:16px}.hero .cta .btn{flex:1 1 140px}}
