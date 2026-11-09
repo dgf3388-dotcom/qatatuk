@@ -104,3 +104,15 @@ footer .logo{color:#fff;justify-content:center;margin-bottom:6px}
 .hero-art img{height:auto;border-radius:20px;box-shadow:0 24px 60px rgba(0,0,0,.35)}
 @media(max-width:860px){.hero{padding:36px 0 44px}.hero .container{grid-template-columns:1fr}.hero-art{max-width:680px;width:100%}}
 @media(max-width:600px){.hero-art img{aspect-ratio:4/5;object-fit:cover;object-position:50% 70%;border-radius:16px}.hero .cta .btn{flex:1 1 140px}}
+
+/* faq */
+.faq{max-width:780px;margin:30px auto 0;display:grid;gap:10px}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:0 18px}
+.faq summary{cursor:pointer;font-weight:700;color:var(--navy);padding:15px 0;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--orange);font-size:1.4rem;line-height:1}
+.faq details[open] summary::after{content:"\2212"}
+.faq p{color:var(--muted);padding-bottom:16px}
+/* nav fit */
+nav a,.nav-actions .btn{white-space:nowrap}
+@media(max-width:1000px){nav ul{gap:14px}.nav-actions .btn{padding:10px 14px;font-size:.92rem}}
