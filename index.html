@@ -27,13 +27,11 @@
 <link rel="preload" as="image" href="hero-mobile.webp" type="image/webp" media="(max-width:600px)">
 <link rel="preload" as="image" href="hero-desktop.webp" type="image/webp" media="(min-width:601px)">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "name": "قطعتك", "alternateName": "Qat'atuk", "slogan": "نبحث عنها، نوفرها لك.", "telephone": "+966559600695", "description": "منصة سعودية للبحث عن قطع غيار السيارات وتوفيرها حسب الطلب.", "areaServed": {"@type": "Country", "name": "Saudi Arabia"}, "contactPoint": {"@type": "ContactPoint", "telephone": "+966559600695", "contactType": "customer service", "availableLanguage": ["ar", "en"], "areaServed": "SA"}, "@id": "https://dgf3388-dotcom.github.io/qatatuk/#org", "url": "https://dgf3388-dotcom.github.io/qatatuk/", "logo": "https://dgf3388-dotcom.github.io/qatatuk/logo.png"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "كيف أطلب قطعة غيار من قطعتك؟", "acceptedAnswer": {"@type": "Answer", "text": "عبّئ نموذج الطلب ببيانات سيارتك والقطعة المطلوبة وبياناتك، ثم يُفتح واتساب برسالة جاهزة ترسلها إلينا، ونتواصل معك بالخيارات المتاحة."}}, {"@type": "Question", "name": "هل لدى قطعتك مخزون من القطع؟", "acceptedAnswer": {"@type": "Answer", "text": "لا، نحن لا نعمل كمتجر تقليدي ولا نمتلك مخزوناً ثابتاً. نبحث عن القطعة المطلوبة لدى موردين داخل السعودية وخارجها ثم نعرض عليك الخيارات."}}, {"@type": "Question", "name": "هل توفرون قطعاً أصلية وتجارية، جديدة ومستعملة؟", "acceptedAnswer": {"@type": "Answer", "text": "نعم، نبحث حسب رغبتك عن قطع جديدة أو مستعملة، أصلية أو تجارية، وتتوقف الخيارات المتاحة على توفر القطعة لدى الموردين."}}, {"@type": "Question", "name": "هل تشحنون إلى جميع مناطق السعودية؟", "acceptedAnswer": {"@type": "Answer", "text": "نعم، نشحن القطعة إلى مدينتك داخل المملكة بعد الاتفاق معك على التفاصيل."}}, {"@type": "Question", "name": "كيف يتم الدفع والاتفاق على السعر؟", "acceptedAnswer": {"@type": "Answer", "text": "لا يتم الدفع داخل الموقع. نتواصل معك مباشرة بالأسعار والخيارات، وبعد اتفاقك معنا نشتري القطعة ونشحنها إليك."}}, {"@type": "Question", "name": "هل أستطيع البحث عن قطعة نادرة أو لا أعرف رقمها؟", "acceptedAnswer": {"@type": "Answer", "text": "نعم، يكفي أن تكتب اسم القطعة وبيانات سيارتك، ويفيد رقم الهيكل VIN ورقم القطعة إن وجد في الوصول إلى القطعة الصحيحة."}}]}]}</script>
-<link rel="icon" type="image/png" href="/favicon.png">
-<link rel="apple-touch-icon" href="/favicon.png">
-  
+<link rel="icon" href="logo-head.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261110">
+<link rel="stylesheet" href="styles.css?v=20261120">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute"><defs>
@@ -41,7 +39,7 @@
 </defs></svg>
 
 <header><div class="container nav">
-  <a href="#home" class="logo" aria-label="قطعتك"><img src="logo-head.png" alt="قطعتك" width="182" height="50"></a>
+  <a href="#home" class="logo logo-anim" aria-label="قطعتك"><img src="logo-head.png" alt="قطعتك" width="182" height="50"></a>
   <nav id="menu"><ul>
     <li><a href="#home" data-i18n="nav_home">الرئيسية</a></li>
     <li><a href="#request" data-i18n="nav_request">اطلب قطعة غيار</a></li>
@@ -105,7 +103,7 @@
 
       <div class="step-pane" data-step="0"><div class="fields">
         <div><label for="car_make" data-i18n="l_make">الشركة المصنعة</label><select id="car_make" required></select><div class="err"></div></div>
-        <div><label for="car_model" data-i18n="l_model">الموديل</label><input id="car_model" maxlength="60" required><div class="err"></div></div>
+        <div><label for="car_model" data-i18n="l_model">الموديل</label><select id="car_model" required></select><input id="car_model_other" maxlength="60" data-i18n-ph="ph_model_other" placeholder="اكتب اسم الموديل" hidden><div class="err"></div></div>
         <div><label for="car_year" data-i18n="l_year">سنة الصنع</label><select id="car_year" required></select><div class="err"></div></div>
         <div><label for="car_trim"><span data-i18n="l_trim">الفئة</span> <span class="opt" data-i18n="opt">(اختياري)</span></label><input id="car_trim" maxlength="60"></div>
         <div><label for="engine"><span data-i18n="l_engine">نوع المحرك</span> <span class="opt" data-i18n="opt">(اختياري)</span></label><input id="engine" maxlength="60" data-i18n-ph="ph_engine" placeholder="مثال: 2.5 لتر بنزين"></div>
@@ -135,18 +133,30 @@
       <div id="formErr" class="alert error" hidden></div>
       <div class="form-nav">
         <button type="button" class="btn btn-outline" id="backBtn" data-i18n="back">السابق</button>
-        <button type="button" class="btn btn-primary" id="nextBtn" data-i18n="next">التالي</button>
-        <button type="submit" class="btn btn-primary" id="submitBtn" data-i18n="submit">إرسال طلب توفير القطعة</button>
+        <button type="button" class="btn btn-primary btn-attn btn-next" id="nextBtn"><span data-i18n="next">التالي</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+        <button type="submit" class="btn btn-primary btn-attn btn-next" id="submitBtn"><span data-i18n="submit">إرسال طلب توفير القطعة</span></button>
       </div>
     </form>
     <div id="successBox" class="success" hidden>
-      <div class="tick"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <h3 data-i18n="ok_title">طلبك جاهز للإرسال</h3>
-      <div class="reqno" id="reqNo"></div>
-      <p data-i18n="ok_msg">اضغط «إرسال» داخل واتساب ليصل طلبك إلى فريق قطعتك. لا يُعتبر الطلب مستلماً قبل إرسال الرسالة.</p>
-      <p style="margin-top:16px"><a class="btn btn-primary" id="waSend" target="_blank" rel="noopener" href="#" data-i18n="wa_send">افتح واتساب وأرسل الطلب</a></p>
-      <p class="sec-sub" style="margin:8px 0 0;font-size:.85rem" data-i18n="wa_note">إذا لم يُفتح واتساب تلقائياً، اضغط الزر. احتفظ برقم الطلب للمراجعة.</p>
-      <p style="margin-top:16px"><button class="btn btn-outline" id="newReq" type="button" data-i18n="new_req">تقديم طلب جديد</button></p>
+      <div class="tick-wrap"><span class="ring"></span><span class="ring r2"></span><div class="tick"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" pathLength="1" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+      <h3 data-i18n="ok_title">تم تجهيز طلبك بنجاح</h3>
+      <p class="ok-lead" data-i18n="ok_lead">راجعنا بياناتك وكل شيء مكتمل. بقيت خطوة واحدة: إرسال الرسالة عبر واتساب ليصل طلبك إلى فريق قطعتك.</p>
+      <div class="reqno-wrap"><span class="reqlabel" data-i18n="ok_reqno">رقم طلبك</span><div class="reqno" id="reqNo"></div><button type="button" class="copy" id="copyNo" data-i18n="copy">نسخ</button></div>
+      <ul class="checks">
+        <li class="ck" style="--i:0"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7 12.5l3.2 3.2L17 9" pathLength="1"/></svg><span class="ck-l" data-i18n="ck_car">بيانات السيارة</span><b id="ckCar"></b></li>
+        <li class="ck" style="--i:1"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7 12.5l3.2 3.2L17 9" pathLength="1"/></svg><span class="ck-l" data-i18n="ck_part">القطعة المطلوبة</span><b id="ckPart"></b></li>
+        <li class="ck" style="--i:2"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7 12.5l3.2 3.2L17 9" pathLength="1"/></svg><span class="ck-l" data-i18n="ck_you">بيانات التواصل</span><b id="ckYou"></b></li>
+        <li class="ck" style="--i:3"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7 12.5l3.2 3.2L17 9" pathLength="1"/></svg><span class="ck-l" data-i18n="ck_ready">الطلب مكتمل وجاهز للإرسال</span></li>
+      </ul>
+      <a class="btn btn-primary btn-attn btn-send" id="waSend" target="_blank" rel="noopener" href="#"><svg class="wa-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.27-1.38A9.9 9.9 0 1 0 12.04 2zm5.8 14.1c-.24.68-1.4 1.3-1.93 1.35-.5.05-1.12.07-1.8-.11a16.5 16.5 0 0 1-1.63-.6c-2.87-1.24-4.74-4.13-4.89-4.32-.14-.19-1.17-1.56-1.17-2.97s.74-2.1 1-2.39a1.07 1.07 0 0 1 .78-.36h.56c.18 0 .42-.07.66.5.24.6.83 2.05.9 2.2.07.14.12.31.02.5-.1.19-.14.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.3-.12.58.17.29.74 1.22 1.6 1.98 1.1.98 2.03 1.28 2.32 1.43.29.14.46.12.63-.07.17-.2.72-.84.91-1.13.2-.29.38-.24.65-.14.26.1 1.67.79 1.96.93.29.14.48.22.55.34.07.12.07.7-.17 1.38z"/></svg><span data-i18n="wa_send">افتح واتساب وأرسل الطلب</span></a>
+      <p class="wa-note" data-i18n="wa_note">إذا لم يُفتح واتساب تلقائياً، اضغط الزر. احتفظ برقم الطلب للمراجعة.</p>
+      <ol class="next-steps">
+        <li><b>1</b><span data-i18n="ns1">ترسل الرسالة عبر واتساب</span></li>
+        <li><b>2</b><span data-i18n="ns2">نبحث عن قطعتك لدى الموردين</span></li>
+        <li><b>3</b><span data-i18n="ns3">نتواصل معك بالخيارات والأسعار</span></li>
+      </ol>
+      <p class="ok-safe" data-i18n="ok_safe">لا دفع الآن. نتفق معك على السعر والتفاصيل قبل أي شراء.</p>
+      <p style="margin-top:14px"><button class="btn btn-outline" id="newReq" type="button" data-i18n="new_req">تقديم طلب جديد</button></p>
     </div>
   </div>
 </div></section>
@@ -160,7 +170,7 @@
   <div class="faq-intro">
     <h2 id="faqT" data-i18n="faq_title">أسئلة شائعة</h2>
     <p data-i18n="faq_sub">إجابات واضحة عن طريقة الطلب والشحن والدفع. وإن لم تجد سؤالك، فريقنا يرد عليك مباشرة عبر واتساب.</p>
-    <div class="faq-cta"><a class="btn btn-primary" href="#request" data-i18n="cta_request">اطلب قطعة غيار</a><a class="btn btn-outline" id="faqWa" target="_blank" rel="noopener" href="#" data-i18n="faq_ask">اسألنا عبر واتساب</a></div>
+    <div class="faq-cta"><a class="btn btn-primary btn-attn" href="#request"><span data-i18n="cta_request">اطلب قطعة غيار</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></a><a class="btn btn-outline btn-wa" id="faqWa" target="_blank" rel="noopener" href="#"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.27-1.38A9.9 9.9 0 1 0 12.04 2zm5.8 14.1c-.24.68-1.4 1.3-1.93 1.35-.5.05-1.12.07-1.8-.11a16.5 16.5 0 0 1-1.63-.6c-2.87-1.24-4.74-4.13-4.89-4.32-.14-.19-1.17-1.56-1.17-2.97s.74-2.1 1-2.39a1.07 1.07 0 0 1 .78-.36h.56c.18 0 .42-.07.66.5.24.6.83 2.05.9 2.2.07.14.12.31.02.5-.1.19-.14.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.3-.12.58.17.29.74 1.22 1.6 1.98 1.1.98 2.03 1.28 2.32 1.43.29.14.46.12.63-.07.17-.2.72-.84.91-1.13.2-.29.38-.24.65-.14.26.1 1.67.79 1.96.93.29.14.48.22.55.34.07.12.07.7-.17 1.38z"/></svg><span data-i18n="faq_ask">اسألنا عبر واتساب</span></a></div>
   </div>
   <div class="faq">
     <details><summary data-i18n="q1">كيف أطلب قطعة غيار من قطعتك؟</summary><p data-i18n="a1">عبّئ نموذج الطلب ببيانات سيارتك والقطعة المطلوبة وبياناتك، ثم يُفتح واتساب برسالة جاهزة ترسلها إلينا، ونتواصل معك بالخيارات المتاحة.</p></details>
@@ -182,14 +192,29 @@
 </div></section>
 </main>
 
-<footer><div class="container">
-  <div class="foot-logo"><img src="logo.png" alt="قطعتك" width="260" height="90" loading="lazy"></div>
-  <small>© <span id="yr"></span> <span data-i18n="brand">قطعتك</span></small>
+<footer class="site-footer"><div class="container">
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <a class="foot-logo logo-anim" href="#home" aria-label="قطعتك"><img src="logo-white.png" alt="قطعتك" width="260" height="90" loading="lazy"></a>
+      <p data-i18n="fd_desc">منصة سعودية تبحث لك عن قطع غيار السيارات وتوفرها من موردين داخل المملكة وخارجها، جديدة أو مستعملة، أصلية أو تجارية. أرسل طلبك وسنتواصل معك بالخيارات والأسعار.</p>
+      <p class="foot-areas" data-i18n="fd_areas">نشحن إلى جميع مناطق المملكة، ومنها:</p>
+      <ul class="chips"><li data-i18n="ca_ri">الرياض</li><li data-i18n="ca_je">جدة</li><li data-i18n="ca_ma">مكة المكرمة</li><li data-i18n="ca_me">المدينة المنورة</li><li data-i18n="ca_da">الدمام</li><li data-i18n="ca_kh">الخبر</li><li data-i18n="ca_ta">الطائف</li><li data-i18n="ca_ab">أبها</li></ul>
+    </div>
+    <div class="foot-col"><h3 data-i18n="fh_links">روابط سريعة</h3><ul><li><a href="#home" data-i18n="fl_home">الرئيسية</a></li><li><a href="#request" data-i18n="fl_req">اطلب قطعة غيار</a></li><li><a href="#how" data-i18n="fl_how">كيف نعمل؟</a></li><li><a href="#faq" data-i18n="fl_faq">الأسئلة الشائعة</a></li><li><a href="#about" data-i18n="fl_about">من نحن</a></li></ul></div>
+    <div class="foot-col"><h3 data-i18n="fh_parts">القطع الأكثر طلباً</h3><ul><li><a href="#request" data-part="فلتر زيت" data-i18n="fp_oil">فلتر زيت</a></li><li><a href="#request" data-part="تيل فرامل أمامي" data-i18n="fp_pad">تيل فرامل</a></li><li><a href="#request" data-part="بواجي" data-i18n="fp_spark">بواجي</a></li><li><a href="#request" data-part="بطارية" data-i18n="fp_bat">بطارية</a></li><li><a href="#request" data-part="رادياتير" data-i18n="fp_rad">رادياتير</a></li><li><a href="#request" data-part="مساعدات أمامية" data-i18n="fp_shock">مساعدات</a></li></ul></div>
+    <div class="foot-col"><h3 data-i18n="fh_contact">اتصل بنا</h3>
+      <a class="foot-phone" id="footPhone" href="#"></a>
+      <p class="foot-pitch" data-i18n="f_pitch">نبحث عنها، نوفرها لك.</p>
+      <a class="btn btn-primary" id="footWa" target="_blank" rel="noopener" href="#" data-i18n="f_wa">تواصل عبر واتساب</a>
+    </div>
+  </div>
+  <div class="foot-bottom"><small>© <span id="yr"></span> <span data-i18n="brand">قطعتك</span>. <span data-i18n="rights">جميع الحقوق محفوظة.</span></small><a href="#home" data-i18n="to_top">العودة للأعلى</a></div>
 </div></footer>
 
-<script src="config.js?v=20261110"></script>
-<script src="i18n.js?v=20261110"></script>
-<script src="parts.js?v=20261110"></script>
-<script src="app.js?v=20261110"></script>
+<script src="config.js?v=20261120"></script>
+<script src="i18n.js?v=20261120"></script>
+<script src="models.js?v=20261120"></script>
+<script src="parts.js?v=20261120"></script>
+<script src="app.js?v=20261120"></script>
 </body>
 </html>
