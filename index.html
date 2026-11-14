@@ -23,15 +23,20 @@
 <meta name="twitter:image" content="https://dgf3388-dotcom.github.io/qatatuk/og-image.jpg">
 <meta property="og:locale" content="ar_SA">
 <meta property="og:locale:alternate" content="en_US">
-<link rel="apple-touch-icon" href="logo.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="قطعتك">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="preload" as="image" href="hero-mobile.webp" type="image/webp" media="(max-width:600px)">
 <link rel="preload" as="image" href="hero-desktop.webp" type="image/webp" media="(min-width:601px)">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "name": "قطعتك", "alternateName": "Qat'atuk", "slogan": "نبحث عنها، نوفرها لك.", "telephone": "+966559600695", "description": "منصة سعودية للبحث عن قطع غيار السيارات وتوفيرها حسب الطلب.", "areaServed": {"@type": "Country", "name": "Saudi Arabia"}, "contactPoint": {"@type": "ContactPoint", "telephone": "+966559600695", "contactType": "customer service", "availableLanguage": ["ar", "en"], "areaServed": "SA"}, "@id": "https://dgf3388-dotcom.github.io/qatatuk/#org", "url": "https://dgf3388-dotcom.github.io/qatatuk/", "logo": "https://dgf3388-dotcom.github.io/qatatuk/logo.png"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "كيف أطلب قطعة غيار من قطعتك؟", "acceptedAnswer": {"@type": "Answer", "text": "عبّئ نموذج الطلب ببيانات سيارتك والقطعة المطلوبة وبياناتك، ثم يُفتح واتساب برسالة جاهزة ترسلها إلينا، ونتواصل معك بالخيارات المتاحة."}}, {"@type": "Question", "name": "هل لدى قطعتك مخزون من القطع؟", "acceptedAnswer": {"@type": "Answer", "text": "لا، نحن لا نعمل كمتجر تقليدي ولا نمتلك مخزوناً ثابتاً. نبحث عن القطعة المطلوبة لدى موردين داخل السعودية وخارجها ثم نعرض عليك الخيارات."}}, {"@type": "Question", "name": "هل توفرون قطعاً أصلية وتجارية، جديدة ومستعملة؟", "acceptedAnswer": {"@type": "Answer", "text": "نعم، نبحث حسب رغبتك عن قطع جديدة أو مستعملة، أصلية أو تجارية، وتتوقف الخيارات المتاحة على توفر القطعة لدى الموردين."}}, {"@type": "Question", "name": "هل تشحنون إلى جميع مناطق السعودية؟", "acceptedAnswer": {"@type": "Answer", "text": "نعم، نشحن القطعة إلى مدينتك داخل المملكة بعد الاتفاق معك على التفاصيل."}}, {"@type": "Question", "name": "كيف يتم الدفع والاتفاق على السعر؟", "acceptedAnswer": {"@type": "Answer", "text": "لا يتم الدفع داخل الموقع. نتواصل معك مباشرة بالأسعار والخيارات، وبعد اتفاقك معنا نشتري القطعة ونشحنها إليك."}}, {"@type": "Question", "name": "هل أستطيع البحث عن قطعة نادرة أو لا أعرف رقمها؟", "acceptedAnswer": {"@type": "Answer", "text": "نعم، يكفي أن تكتب اسم القطعة وبيانات سيارتك، ويفيد رقم الهيكل VIN ورقم القطعة إن وجد في الوصول إلى القطعة الصحيحة."}}]}]}</script>
-<link rel="icon" href="logo-head.png">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261120">
+<link rel="stylesheet" href="styles.css?v=20261122">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute"><defs>
@@ -105,7 +110,7 @@
         <div><label for="car_make" data-i18n="l_make">الشركة المصنعة</label><select id="car_make" required></select><div class="err"></div></div>
         <div><label for="car_model" data-i18n="l_model">الموديل</label><select id="car_model" required></select><input id="car_model_other" maxlength="60" data-i18n-ph="ph_model_other" placeholder="اكتب اسم الموديل" hidden><div class="err"></div></div>
         <div><label for="car_year" data-i18n="l_year">سنة الصنع</label><select id="car_year" required></select><div class="err"></div></div>
-        <div><label for="car_trim"><span data-i18n="l_trim">الفئة</span> <span class="opt" data-i18n="opt">(اختياري)</span></label><input id="car_trim" maxlength="60"></div>
+        <div><label for="car_trim" data-i18n="l_trim">الفئة</label><select id="car_trim" required></select><input id="car_trim_other" maxlength="60" data-i18n-ph="ph_trim_other" placeholder="اكتب اسم الفئة" hidden><div class="err"></div></div>
         <div><label for="engine"><span data-i18n="l_engine">نوع المحرك</span> <span class="opt" data-i18n="opt">(اختياري)</span></label><input id="engine" maxlength="60" data-i18n-ph="ph_engine" placeholder="مثال: 2.5 لتر بنزين"></div>
         <div><label for="vin"><span data-i18n="l_vin">رقم الهيكل VIN</span> <span class="opt" data-i18n="opt">(اختياري)</span></label><input id="vin" maxlength="17" dir="ltr" style="text-transform:uppercase"><div class="err"></div></div>
       </div></div>
@@ -211,10 +216,12 @@
   <div class="foot-bottom"><small>© <span id="yr"></span> <span data-i18n="brand">قطعتك</span>. <span data-i18n="rights">جميع الحقوق محفوظة.</span></small><a href="#home" data-i18n="to_top">العودة للأعلى</a></div>
 </div></footer>
 
-<script src="config.js?v=20261120"></script>
-<script src="i18n.js?v=20261120"></script>
-<script src="models.js?v=20261120"></script>
-<script src="parts.js?v=20261120"></script>
-<script src="app.js?v=20261120"></script>
+<script src="config.js?v=20261122"></script>
+<script src="i18n.js?v=20261122"></script>
+<script src="models.js?v=20261122"></script>
+<script src="trims.js?v=20261122"></script>
+<script src="parts.js?v=20261122"></script>
+<script src="app.js?v=20261122"></script>
+<script src="pwa.js?v=20261122" defer></script>
 </body>
 </html>

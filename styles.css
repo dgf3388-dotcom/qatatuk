@@ -269,3 +269,19 @@ html[dir=ltr]{--nx:6px}
 @media(max-width:560px){.checks li{flex-wrap:wrap;row-gap:2px}.checks b{flex-basis:100%;margin:0;padding-inline-start:38px;text-align:start}.checks li:last-child{flex-wrap:nowrap}}
 #car_model_other{margin-top:8px}
 select:disabled{background:var(--gray);cursor:not-allowed}
+#car_trim_other{margin-top:8px}
+
+/* install banner */
+.pwa-bar{position:fixed;z-index:90;inset-inline:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));max-width:560px;margin-inline:auto;display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:12px 14px;box-shadow:0 18px 50px rgba(8,39,70,.28);transform:translateY(140%);opacity:0;transition:transform .5s cubic-bezier(.2,.9,.3,1.1),opacity .3s;pointer-events:none}
+.pwa-bar.on{transform:none;opacity:1;pointer-events:auto}
+.pwa-ic{flex:none;width:52px;height:52px;border-radius:13px;display:block}
+.pwa-tx{min-width:0;flex:1;display:grid;gap:2px}
+.pwa-tx b{color:var(--navy);font-size:1rem}
+.pwa-tx span{color:var(--muted);font-size:.83rem;line-height:1.5}
+.pwa-share svg{width:16px;height:16px;vertical-align:-3px;stroke:var(--navy);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.pwa-go{flex:none;padding:10px 16px;font-size:.9rem;white-space:nowrap}
+.pwa-x{flex:none;border:0;background:none;color:var(--muted);font-size:1.6rem;line-height:1;cursor:pointer;padding:0 4px;align-self:flex-start}
+.foot-install{display:inline-block;margin-top:14px;color:#dbe4f0;border:1px dashed rgba(255,255,255,.35);border-radius:10px;padding:8px 14px;font-size:.9rem;transition:.2s}
+.foot-install:hover{border-color:var(--orange);color:var(--orange)}
+@media(max-width:480px){.pwa-bar{flex-wrap:wrap}.pwa-go{width:100%;order:3}.pwa-x{order:2;margin-inline-start:auto}}
+@media(prefers-reduced-motion:reduce){.pwa-bar{transition:none}}

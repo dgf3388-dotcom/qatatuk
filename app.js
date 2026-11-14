@@ -27,7 +27,8 @@ $('#waLink').href='https://wa.me/'+(cfg.WHATSAPP_NUMBER||'');$('#footWa').href='
 
 /* موديلات الشركة المختارة */
 function carModel(){const s=$('#car_model');return (s.hidden||s.value==='__other')?$('#car_model_other').value.trim():s.value.trim();}
-function updateModels(){
+function updateModels(){_um();updateTrims();}
+function _um(){
   const mk=$('#car_make').value,sel=$('#car_model'),oth=$('#car_model_other'),L=QT_I18N.lang==='ar',list=(window.QT_MODELS||{})[mk]||[],cur=sel.value;
   sel.innerHTML='';
   if(!mk){sel.add(new Option(T('pick_make_first'),''));sel.disabled=true;sel.hidden=false;oth.hidden=true;return;}
@@ -38,8 +39,32 @@ function updateModels(){
   if([...sel.options].some(o=>o.value===cur))sel.value=cur;
   oth.hidden=sel.value!=='__other';
 }
-$('#car_make').addEventListener('change',()=>{$('#car_model').value='';$('#car_model_other').value='';updateModels();checkReady();});
+$('#car_make').addEventListener('change',()=>{$('#car_model').value='';$('#car_model_other').value='';$('#car_trim').value='';$('#car_trim_other').value='';updateModels();checkReady();});
 $('#car_model').addEventListener('change',()=>{const o=$('#car_model_other');o.hidden=$('#car_model').value!=='__other';if(!o.hidden)o.focus();checkReady();});
+
+
+/* فئات السيارة حسب الشركة والموديل */
+function trimChosen(){const s=$('#car_trim');if(s.hidden||s.value==='__other')return !!$('#car_trim_other').value.trim();return !!s.value;}
+function carTrim(){const s=$('#car_trim');if(s.hidden||s.value==='__other')return $('#car_trim_other').value.trim();return s.value==='__unknown'?'':s.value;}
+function updateTrims(){
+  const mk=$('#car_make').value,sel=$('#car_trim'),oth=$('#car_trim_other'),L=QT_I18N.lang==='ar',cur=sel.value,T0=window.QT_TRIMS||{brands:{},models:{}};
+  const ms=$('#car_model');
+  sel.innerHTML='';
+  if(!mk){sel.add(new Option(T('pick_make_first'),''));sel.disabled=true;sel.hidden=false;oth.hidden=true;return;}
+  const brand=T0.brands[mk];
+  if(!brand){sel.hidden=true;oth.hidden=false;return;}
+  if(!carModel()){sel.add(new Option(T('pick_model_first'),''));sel.disabled=true;sel.hidden=false;oth.hidden=true;return;}
+  sel.disabled=false;sel.hidden=false;
+  const list=(!ms.hidden&&ms.value&&ms.value!=='__other'&&T0.models[mk+'|'+ms.value])||brand;
+  sel.add(new Option(T('pick_trim'),''));
+  list.forEach(([a,e])=>sel.add(new Option(L?a:e,a)));
+  sel.add(new Option(T('trim_unknown'),'__unknown'));sel.add(new Option(T('model_other'),'__other'));
+  if([...sel.options].some(o=>o.value===cur))sel.value=cur;
+  oth.hidden=sel.value!=='__other';
+}
+$('#car_trim').addEventListener('change',()=>{const o=$('#car_trim_other');o.hidden=$('#car_trim').value!=='__other';if(!o.hidden)o.focus();checkReady();});
+$('#car_model').addEventListener('change',()=>{$('#car_trim').value='';$('#car_trim_other').value='';updateTrims();checkReady();});
+$('#car_model_other').addEventListener('input',()=>{updateTrims();checkReady();});
 
 /* steps */
 let step=0;const panes=$$('.step-pane'),bars=$$('#progress div');
@@ -50,7 +75,7 @@ function setErr(el,msg){el.classList.toggle('invalid',!!msg);const e=el.parentEl
 function normPhone(v){v=v.replace(/[\s\-()]/g,'').replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d));
   if(/^(\+?966|00966)5\d{8}$/.test(v))return '0'+v.replace(/^(\+?966|00966)/,'');return v;}
 const rules={
-  0:[['#car_make',v=>v?'':T('required')],['#car_model',()=>{const bad=!carModel();$('#car_model_other').classList.toggle('invalid',bad&&!$('#car_model_other').hidden);return bad?T('required'):''}],['#car_year',v=>v?'':T('required')],
+  0:[['#car_make',v=>v?'':T('required')],['#car_model',()=>{const bad=!carModel();$('#car_model_other').classList.toggle('invalid',bad&&!$('#car_model_other').hidden);return bad?T('required'):''}],['#car_year',v=>v?'':T('required')],['#car_trim',()=>{const bad=!trimChosen();$('#car_trim_other').classList.toggle('invalid',bad&&!$('#car_trim_other').hidden);return bad?T('required'):''}],
      ['#vin',v=>!v||/^[A-HJ-NPR-Za-hj-npr-z0-9]{17}$/.test(v.trim())?'':T('vin')]],
   1:[['#part_name',v=>v.trim().length>=2?'':T('required')]],
   2:[['#customer_name',v=>v.trim().length>=2?'':T('required')],['#phone',v=>/^05\d{8}$/.test(normPhone(v))?'':T('phone')],['#city',v=>v?'':T('required')]]};
@@ -103,7 +128,7 @@ function buildWa(no,p){
   const lines=[L?'طلب توفير قطعة غيار جديد':'New spare part request',
     (L?'رقم الطلب: ':'Request no: ')+no,'',
     (L?'الاسم: ':'Name: ')+p.name,(L?'الجوال: ':'Mobile: ')+p.phone,(L?'المدينة: ':'City: ')+sel('#city'),(L?'وسيلة التواصل: ':'Contact: ')+sel('#contact_method'),'',
-    (L?'السيارة: ':'Car: ')+[sel('#car_make'),p.model,p.year,p.trim].filter(Boolean).join(' '),
+    (L?'السيارة: ':'Car: ')+[sel('#car_make'),p.model,p.year].filter(Boolean).join(' '),(L?'الفئة: ':'Trim: ')+(p.trim||(L?'غير محددة':'Not specified')),
     p.engine?(L?'المحرك: ':'Engine: ')+p.engine:'',p.vin?'VIN: '+p.vin:'','',
     (L?'القطعة: ':'Part: ')+p.part+(p.partno?' ('+p.partno+')':''),
     (L?'الحالة: ':'Condition: ')+sel('#part_condition')+' / '+sel('#part_type'),
@@ -116,8 +141,8 @@ $('#reqForm').addEventListener('submit',ev=>{
   if($('#website').value)return; // honeypot
   const g=s=>$(s).value.trim();
   const no=genNo();
-  const wa=buildWa(no,{name:g('#customer_name'),phone:normPhone(g('#phone')),model:carModel(),year:g('#car_year'),trim:g('#car_trim'),engine:g('#engine'),vin:g('#vin').toUpperCase(),part:g('#part_name'),partno:g('#part_number'),desc:g('#description')});
-  $('#reqNo').textContent=no;const selT=s=>$(s).selectedOptions[0].textContent;$('#ckCar').textContent=[selT('#car_make'),carModel(),g('#car_year'),g('#car_trim')].filter(Boolean).join(' ');$('#ckPart').textContent=g('#part_name')+(g('#part_number')?' ('+g('#part_number')+')':'');$('#ckYou').textContent=g('#customer_name')+' · '+normPhone(g('#phone'))+' · '+selT('#city');$('#waSend').href=wa;$('#reqForm').hidden=true;$('#successBox').hidden=false;
+  const wa=buildWa(no,{name:g('#customer_name'),phone:normPhone(g('#phone')),model:carModel(),year:g('#car_year'),trim:carTrim(),engine:g('#engine'),vin:g('#vin').toUpperCase(),part:g('#part_name'),partno:g('#part_number'),desc:g('#description')});
+  $('#reqNo').textContent=no;const selT=s=>$(s).selectedOptions[0].textContent;$('#ckCar').textContent=[selT('#car_make'),carModel(),g('#car_year'),carTrim()].filter(Boolean).join(' ');$('#ckPart').textContent=g('#part_name')+(g('#part_number')?' ('+g('#part_number')+')':'');$('#ckYou').textContent=g('#customer_name')+' · '+normPhone(g('#phone'))+' · '+selT('#city');$('#waSend').href=wa;$('#reqForm').hidden=true;$('#successBox').hidden=false;
   $('#request').scrollIntoView({behavior:'smooth'});
   try{window.open(wa,'_blank','noopener')}catch(_){}
 });
