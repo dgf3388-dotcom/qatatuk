@@ -59,7 +59,7 @@ input,select,textarea{width:100%;padding:12px 14px;border:1.5px solid var(--line
 input:focus,select:focus,textarea:focus{outline:0;border-color:var(--orange);box-shadow:0 0 0 3px rgba(255,138,0,.15)}
 .invalid{border-color:var(--err)!important}
 .err{color:var(--err);font-size:.82rem;min-height:1.1em;margin-top:3px}
-.hp{position:absolute;left:-9999px;opacity:0;height:0;width:0}
+.hp{position:absolute;top:0;left:0;opacity:0;height:1px;width:1px;overflow:hidden;clip-path:inset(50%);pointer-events:none}
 .previews{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
 .previews div{position:relative;width:78px;height:78px;border-radius:10px;overflow:hidden;border:1px solid var(--line)}
 .previews img{width:100%;height:100%;object-fit:cover}
