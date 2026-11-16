@@ -32,8 +32,8 @@
     bar.querySelector('.pwa-x').setAttribute('aria-label',x.x);bar.querySelector('.pwa-x').textContent='×';
     if(footBtn)footBtn.textContent=x.f;
   }
-  function show(){build();requestAnimationFrame(()=>bar.classList.add('on'))}
-  function hide(remember){if(!bar)return;bar.classList.remove('on');if(remember)store.set()}
+  function show(){build();document.body.classList.add('pwa-on');requestAnimationFrame(()=>bar.classList.add('on'))}
+  function hide(remember){if(!bar)return;bar.classList.remove('on');document.body.classList.remove('pwa-on');if(remember)store.set()}
   function footer(){
     const host=document.querySelector('.foot-col:last-child');if(!host||footBtn)return;
     footBtn=document.createElement('a');footBtn.href='#';footBtn.className='foot-install';host.appendChild(footBtn);

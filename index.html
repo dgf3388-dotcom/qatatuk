@@ -36,7 +36,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261123">
+<link rel="stylesheet" href="styles.css?v=20261213">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute"><defs>
@@ -132,6 +132,7 @@
         <div><label for="phone" data-i18n="l_phone">رقم الجوال</label><input id="phone" type="tel" dir="ltr" placeholder="05xxxxxxxx" autocomplete="tel" required><div class="err"></div></div>
         <div><label for="city" data-i18n="l_city">المدينة</label><select id="city" required></select><div class="err"></div></div>
         <div><label for="contact_method" data-i18n="l_contact">وسيلة التواصل المفضلة</label><select id="contact_method"><option value="whatsapp" data-i18n="m_wa">واتساب</option><option value="call" data-i18n="m_call">اتصال</option><option value="sms" data-i18n="m_sms">رسالة نصية</option></select></div>
+        <p class="full priv-note"><span data-i18n="priv_note">بإرسال طلبك فإنك توافق على</span> <a href="privacy.html" target="_blank" rel="noopener" data-i18n="privacy">سياسة الخصوصية</a>.</p>
         <input class="hp" id="website" tabindex="-1" autocomplete="off" aria-hidden="true">
       </div></div>
 
@@ -169,6 +170,13 @@
 <section class="alt" id="about"><div class="container">
   <h2 class="sec-title" data-i18n="about_title">من نحن</h2>
   <p class="about" data-i18n="about_txt">قطعتك منصة سعودية متخصصة في استقبال طلبات البحث عن قطع غيار السيارات وتوفيرها حسب الطلب. لا نعمل كمتجر تقليدي ولا نمتلك مخزوناً ثابتاً؛ نبحث لك لدى موردين داخل السعودية وخارجها، ثم نعرض عليك الخيارات والأسعار المتاحة. الاتفاق والدفع والشراء والشحن تتم خارج الموقع بالتواصل المباشر معك.</p>
+</div></section>
+
+<section id="reviews" aria-labelledby="revT"><div class="container">
+  <h2 class="sec-title" id="revT" data-i18n="rev_title">آراء عملائنا</h2>
+  <p class="sec-sub" data-i18n="rev_sub">تجارب حقيقية من عملاء طلبوا قطع غيار سياراتهم عبر قطعتك.</p>
+  <div id="revBody"></div>
+  <div id="revForm"></div>
 </div></section>
 
 <section class="alt" id="faq" aria-labelledby="faqT"><div class="container faq-wrap">
@@ -213,15 +221,18 @@
       <a class="btn btn-primary" id="footWa" target="_blank" rel="noopener" href="#" data-i18n="f_wa">تواصل عبر واتساب</a>
     </div>
   </div>
-  <div class="foot-bottom"><small>© <span id="yr"></span> <span data-i18n="brand">قطعتك</span>. <span data-i18n="rights">جميع الحقوق محفوظة.</span></small><a href="#home" data-i18n="to_top">العودة للأعلى</a></div>
+  <div class="foot-bottom"><small>© <span id="yr"></span> <span data-i18n="brand">قطعتك</span>. <span data-i18n="rights">جميع الحقوق محفوظة.</span></small><span class="foot-legal"><a href="privacy.html" data-i18n="privacy">سياسة الخصوصية</a> · <a href="shipping.html" data-i18n="shipping">سياسة الشحن</a> · <a href="terms.html" data-i18n="terms">شروط الاستخدام</a></span><a href="#home" data-i18n="to_top">العودة للأعلى</a></div>
 </div></footer>
 
-<script src="config.js?v=20261123"></script>
-<script src="i18n.js?v=20261123"></script>
-<script src="models.js?v=20261123"></script>
-<script src="trims.js?v=20261123"></script>
-<script src="parts.js?v=20261123"></script>
-<script src="app.js?v=20261123"></script>
-<script src="pwa.js?v=20261123" defer></script>
+<script src="config.js?v=20261213"></script>
+<script src="i18n.js?v=20261213"></script>
+<script src="models.js?v=20261213"></script>
+<script src="trims.js?v=20261213"></script>
+<script src="parts.js?v=20261213"></script>
+<script src="wa-float.js?v=20261213" defer></script>
+<script src="reviews-data.js?v=20261213"></script>
+<script src="reviews.js?v=20261213"></script>
+<script src="app.js?v=20261213"></script>
+<script src="pwa.js?v=20261213" defer></script>
 </body>
 </html>

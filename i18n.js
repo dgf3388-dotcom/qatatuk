@@ -1,7 +1,7 @@
 // الترجمة: العربية هي النص الأصلي داخل HTML، وهنا الإنجليزية + رسائل JS.
 (function(){
 const EN={
-brand:"Qat'atuk",nav_home:"Home",nav_request:"Request a part",nav_how:"How it works",nav_about:"About us",nav_contact:"Contact us",
+brand:"Qat'atuk",privacy:"Privacy Policy",shipping:"Shipping Policy",terms:"Terms of Use",priv_note:"By sending your request you agree to our",rev_title:"What our customers say",rev_sub:"Real experiences from customers who requested their car parts through Qat'atuk.",nav_home:"Home",nav_request:"Request a part",nav_how:"How it works",nav_about:"About us",nav_contact:"Contact us",
 cta_request:"Request a part",tagline:"We search for it, we source it for you.",
 hero_title:"Looking for a spare part? Let us find it for you.",
 hero_desc:"Whatever your car or the part you need, we search multiple sources and source it for you — new or used, genuine or aftermarket.",
