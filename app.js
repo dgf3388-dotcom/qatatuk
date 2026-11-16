@@ -98,7 +98,7 @@ $$('input,select,textarea').forEach(el=>el.addEventListener('input',()=>el.class
 const NS=s=>String(s).toLowerCase().replace(/[\u064B-\u0652\u0640]/g,'').replace(/[أإآ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي').replace(/\s+/g,' ').trim();
 let showAll=false;
 function icon(k){const s=document.createElementNS('http://www.w3.org/2000/svg','svg');s.setAttribute('viewBox','0 0 24 24');s.setAttribute('aria-hidden','true');s.innerHTML=(window.QT_ICONS||{})[k]||'';return s;}
-function pimg(p,L){const i=document.createElement('img');i.className='pimg';i.src=p.img;i.alt=L?p.ar:p.en;i.width=80;i.height=60;i.loading='lazy';i.decoding='async';i.onerror=()=>{i.replaceWith(icon(p.icon))};return i;}
+function pimg(p,L){const S=(window.QT_PART_IMGS||{})[p.img];if(!S)return icon(p.icon);const i=document.createElement('img');i.className='pimg';i.src=S;i.alt=L?p.ar:p.en;i.width=80;i.height=60;i.loading='lazy';i.decoding='async';i.onerror=()=>{i.replaceWith(icon(p.icon))};return i;}
 function renderCatalog(){
   if(window.qtPending&&!$('#part_name').value){$('#part_name').value=window.qtPending;window.qtPending=null;}
   const P=window.QT_PARTS||[];if(!P.length||!$('#catGrid'))return;

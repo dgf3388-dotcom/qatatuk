@@ -1,7 +1,7 @@
 // الترجمة: العربية هي النص الأصلي داخل HTML، وهنا الإنجليزية + رسائل JS.
 (function(){
 const EN={
-brand:"Qat'atuk",privacy:"Privacy Policy",shipping:"Shipping Policy",terms:"Terms of Use",priv_note:"By sending your request you agree to our",rev_title:"What our customers say",rev_sub:"Real experiences from customers who requested their car parts through Qat'atuk.",nav_home:"Home",nav_request:"Request a part",nav_how:"How it works",nav_about:"About us",nav_contact:"Contact us",
+brand:"Qat'atuk",about_txt2:"We provide car spare parts of every kind, from oil and air filters and brake pads to batteries, shock absorbers, lights and bumpers. We search for Toyota, Hyundai, Nissan, Kia, Ford and other makes by your VIN and car model, genuine or aftermarket, new or used, with shipping to all cities in the Kingdom.",q7:"Do you source Toyota spare parts and other makes?",a7:"Yes, we search for Toyota, Hyundai, Nissan, Kia, Ford, Chevrolet and other makes according to your car details and the part you need, and source them for you after we agree on the price.",privacy:"Privacy Policy",shipping:"Shipping Policy",terms:"Terms of Use",articles:"Articles",priv_note:"By sending your request you agree to our",rev_title:"What our customers say",rev_sub:"Real experiences from customers who requested their car parts through Qat'atuk.",nav_home:"Home",nav_request:"Request a part",nav_how:"How it works",nav_about:"About us",nav_contact:"Contact us",
 cta_request:"Request a part",tagline:"We search for it, we source it for you.",
 hero_title:"Looking for a spare part? Let us find it for you.",
 hero_desc:"Whatever your car or the part you need, we search multiple sources and source it for you — new or used, genuine or aftermarket.",
@@ -46,7 +46,7 @@ function apply(){
  document.body.style.fontFamily=lang==='ar'?"'Cairo','IBM Plex Sans Arabic',system-ui,sans-serif":"'Cairo',system-ui,sans-serif";
  document.querySelectorAll('[data-i18n]').forEach(e=>{const k=e.dataset.i18n;e.textContent=lang==='ar'?AR[k]:(EN[k]||AR[k])});
  document.querySelectorAll('[data-i18n-ph]').forEach(e=>e.setAttribute('placeholder',(lang==='ar'?ARPH:ENPH)[e.dataset.i18nPh]));
- document.title=lang==='ar'?'قطعتك | البحث عن قطع غيار السيارات وتوفيرها في السعودية':"Qat'atuk | Car spare parts sourcing & delivery in Saudi Arabia";
+ document.title=lang==='ar'?'قطعتك | قطع غيار السيارات في السعودية - Car Spare Parts':"Qat'atuk | Car spare parts sourcing & delivery in Saudi Arabia";
  const b=document.getElementById('langBtn');if(b)b.textContent=lang==='ar'?'English':'العربية';
  QT_I18N.onChange.forEach(f=>f());
 }

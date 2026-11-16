@@ -374,3 +374,5 @@ select:disabled{background:var(--gray);cursor:not-allowed}
 @media(max-width:640px){.part .pimg{width:72px;height:54px}}
 
 #revBody:empty{display:none}
+
+.about2{margin-top:16px}
