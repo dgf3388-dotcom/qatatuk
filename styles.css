@@ -376,3 +376,12 @@ select:disabled{background:var(--gray);cursor:not-allowed}
 #revBody:empty{display:none}
 
 .about2{margin-top:16px}
+
+/* sound toggle */
+.snd-btn{width:40px;height:40px;flex:none;border:1.5px solid var(--navy);border-radius:10px;background:none;color:var(--navy);display:grid;place-items:center;cursor:pointer;transition:.2s}
+.snd-btn:hover{background:var(--navy);color:#fff}
+.snd-btn svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.snd-btn .x{display:none}
+.snd-btn.off .x{display:block}.snd-btn.off .w1,.snd-btn.off .w2{display:none}
+.snd-btn:not(.off):active .w1,.snd-btn:not(.off):active .w2{animation:sndW .4s}
+@keyframes sndW{50%{opacity:.2}}
