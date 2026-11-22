@@ -155,10 +155,12 @@ $('#newReq').onclick=()=>{$('#reqForm').reset();updateModels();$('#reqForm').hid
 /* حركة أزرار الأسئلة الشائعة: ظهور متتابع عند الوصول إليها */
 (function(){
   const box=document.querySelector('.faq-cta');if(!box||!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  const r=box.getBoundingClientRect();if(r.top<innerHeight&&r.bottom>0)return;
-  const els=[...box.querySelectorAll('.btn')];
-  els.forEach((b,i)=>{b.classList.add('pre');b.style.setProperty('--d',i*130+'ms')});
-  const io=new IntersectionObserver(es=>{if(es[0].isIntersecting){els.forEach(b=>{b.classList.remove('pre');b.classList.add('pop')});io.disconnect()}},{threshold:.5});io.observe(box);
+  /* بدون قراءة أبعاد (getBoundingClientRect): أول استدعاء من المراقب يخبرنا هل العنصر ظاهر أصلاً */
+  const els=[...box.querySelectorAll('.btn')];let armed=false;
+  const io=new IntersectionObserver(es=>{const v=es[es.length-1].isIntersecting;
+    if(!armed){armed=true;if(v){io.disconnect();return}
+      els.forEach((b,i)=>{b.classList.add('pre');b.style.setProperty('--d',i*130+'ms')});return}
+    if(v){els.forEach(b=>{b.classList.remove('pre');b.classList.add('pop')});io.disconnect()}},{threshold:.5});io.observe(box);
 })();
 /* حركة الأيقونات: ظهور متتابع عند التمرير ورسم خطوط الأيقونة */
 (function(){

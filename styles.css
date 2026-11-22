@@ -146,7 +146,7 @@ html[dir=ltr]{--dx:4px;--fx:-1}
 @media(prefers-reduced-motion:reduce){.btn-attn,.btn-attn::after,.btn-wa svg,.faq-cta .pop{animation:none!important}.faq-cta .pre{opacity:1;transform:none}}
 
 /* animated logo */
-:root{--logo-mask:url(logo-head.png)}
+:root{--logo-mask:url(logo-head.webp)}
 .logo-anim{position:relative;transition:transform .3s ease}
 .logo-anim:hover{transform:scale(1.04)}
 .logo.logo-anim img{animation:qtLogoIn 1.1s cubic-bezier(.2,.8,.2,1) backwards}
@@ -385,3 +385,35 @@ select:disabled{background:var(--gray);cursor:not-allowed}
 .snd-btn.off .x{display:block}.snd-btn.off .w1,.snd-btn.off .w2{display:none}
 .snd-btn:not(.off):active .w1,.snd-btn:not(.off):active .w2{animation:sndW .4s}
 @keyframes sndW{50%{opacity:.2}}
+
+/* ===== أداء: حركات على transform/opacity فقط (بدون تحريك box-shadow أو border-color) ===== */
+/* نبضة الأزرار: حلقة على عنصر وهمي تتحرك بـ transform+opacity بدل box-shadow */
+.btn-attn{overflow:visible;animation:none;isolation:isolate}
+.btn-attn::before{content:"";position:absolute;inset:0;border-radius:inherit;background:rgba(255,138,0,.55);z-index:-1;pointer-events:none;will-change:transform,opacity;animation:qtRingBtn 3s ease-out 1.5s infinite}
+.btn-attn::after{inset:0;left:0;width:auto;border-radius:inherit;transform:none;background:linear-gradient(100deg,transparent 40%,rgba(255,255,255,.5) 50%,transparent 60%) no-repeat;background-size:250% 100%;background-position:150% 0;animation:qtShine2 4.5s ease-in-out 2s infinite}
+.btn-next.ready{animation:none}
+.btn-next.ready::before{animation:qtRingBtnBig 1.7s ease-out infinite}
+.btn-attn:hover::before,.btn-next.ready:hover::before{animation:none;opacity:0}
+.faq-cta .btn-attn.pop{animation:qtPop .6s cubic-bezier(.2,.8,.2,1) var(--d,0ms) backwards}
+@keyframes qtRingBtn{0%{transform:scale(1);opacity:.55}70%,100%{transform:scale(1.14,1.55);opacity:0}}
+@keyframes qtRingBtnBig{0%{transform:scale(1);opacity:.65}70%,100%{transform:scale(1.2,1.9);opacity:0}}
+@keyframes qtShine2{0%{background-position:150% 0}22%,100%{background-position:-50% 0}}
+@media(prefers-reduced-motion:reduce){.btn-attn::before{animation:none!important;display:none}}
+
+/* تأثير التحويم: الظل وحدّ البرتقالي يظهران بتغيير opacity لطبقة وهمية */
+.g5 .card,.g4 .step,.part,.rev-card{position:relative}
+.g5 .card,.g4 .step{transition:transform .3s ease}
+.g5 .card::after,.g4 .step::after,.part::after,.rev-card::after{content:"";position:absolute;inset:-1px;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .25s ease}
+.g5 .card::after{border:1px solid rgba(255,138,0,.5);box-shadow:var(--sh)}
+.g4 .step::after,.rev-card::after{box-shadow:var(--sh)}
+.part::after{border:1.5px solid var(--orange);box-shadow:0 8px 18px rgba(8,39,70,.12)}
+.g5 .card:hover,.g4 .step:hover,.rev-card:hover{box-shadow:none}
+.g5 .card:hover::after,.g4 .step:hover::after,.part:hover::after,.rev-card:hover::after{opacity:1}
+.part{transition:transform .25s ease,background .15s}
+.part:hover{box-shadow:none;border-color:var(--line)}
+.part[aria-pressed=true]:hover{border-color:var(--orange)}
+.faq details{transition:none}
+.progress div{transition:color .4s ease}
+.btn-attn:hover,.btn-wa:hover{box-shadow:none}
+.btn-attn,.btn-wa{transition:transform .25s ease,background .2s,color .2s}
+.copy,.foot-install,.snd-btn{transition:background .2s,color .2s}
