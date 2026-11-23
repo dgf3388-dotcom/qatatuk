@@ -1,6 +1,6 @@
 /* قطعتك - Service Worker
    عند أي تعديل على الموقع غيّر رقم VERSION أدناه ليصل التحديث للزوار. */
-const VERSION='qt-v28';
+const VERSION='qt-v29';
 const CORE=['./','index.html','manifest.webmanifest','icon-192.png','icon-512.png','logo-head.png','logo-head.webp'];
 
 self.addEventListener('install',e=>{
